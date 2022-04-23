@@ -11,26 +11,36 @@
         <h1>Welcome to my blog website</h1>
     </header>
     <main>
-        <section>
-            <article>
+        <section id="blogs" class="blogs">
+            <header>
+                <h2>Blog List</h2>
+                <ul id="blog-list">
+                    <li>Blog-1</li>
+                    <li>Blog-2</li>
+                    <li>Blog-3</li>
+                    <li>Blog-4</li>
+                </ul>
+            </header>
+            <article class="blog">
                 <h3>My awesome Blog-1</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore porro voluptates, consequuntur mollitia, vel repudiandae debitis magnam accusantium rerum incidunt fuga iure sapiente est ipsam et delectus, at quisquam nam.</p>
             </article>
-            <article>
+            <article class="blog">
                 <h3 id="second-title">My awesome Blog-2</h3>
                 <p>Ipsum, doloremque aliquid, culpa vitae facilis repellat quis, provident ipsam delectus asperiores aperiam. Optio, porro, voluptatem aspernatur saepe odio ipsam omnis adipisci totam facere nulla id, et maxime atque tempora.</p>
             </article>
-            <article>
+            <article class="blog">
                 <h3 id="third-title">My awesome Blog-3</h3>
                 <p>Modi quisquam cum harum incidunt blanditiis voluptas placeat, enim unde, eius delectus minima, error nulla! Labore recusandae architecto sunt voluptas, tenetur ab nesciunt reiciendis, rerum asperiores sapiente totam accusamus vitae?</p>
             </article>
-            <article>
+            <article class="blog">
                 <h3 id="fourth-title">My awesome Blog-4</h3>
                 <p>Modi quisquam cum harum incidunt blanditiis voluptas placeat, enim unde, eius delectus minima, error nulla! Labore recusandae architecto sunt voluptas, tenetur ab nesciunt reiciendis, rerum asperiores sapiente totam accusamus vitae?</p>
             </article>
         </section>
 
         <script>
+            //Explore getElementByTagName
             const blogTitles = document.getElementsByTagName('h3');
             for(const h3 of blogTitles){
                 console.log(h3.innerText);
@@ -39,6 +49,7 @@
             for(const p of blogDetails){
                 console.log(p.innerText);
             }
+            //Explore getElementById
             const secondTitle = document.getElementById('second-title');
             secondTitle.style.textAlign = 'center';
             const thirdTitle = document.getElementById('third-title');
@@ -49,6 +60,38 @@
             const fourthTitle = document.getElementById('fourth-title');
             fourthTitle.innerText = 'This is new fourth title';
             fourthTitle.style.backgroundColor = 'yellow';
+
+            // Create and add element by using js
+            const li = document.createElement('li');
+            li.innerText = 'Blog-5';
+            //where to add(parent k lagbe cz children hishebe add hobe)
+            const ul = document.getElementById('blog-list');
+            //append the new child
+            ul.appendChild(li);
+
+            //add article
+            const article = document.createElement('article');
+            article.classList.add('blog');
+            const h3 = document.createElement('h3');
+            h3.innerText = 'MY awesome blog-5';
+            const p = document.createElement('p');
+            p.innerText = 'Modi quisquam cum harum incidunt blanditiis voluptas placeat, enim unde, eius delectus minima, error nulla! Labore recusandae architecto sunt voluptas, tenetur ab nesciunt reiciendis, rerum asperiores sapiente totam accusamus vitae?'
+            article.appendChild(h3);
+            article.appendChild(p);
+
+            //parent of article
+            const blogSection = document.getElementById('blogs');
+            blogSection.appendChild(article);
+
+            //Explore getElementsByClassName
+            const blogs = document.getElementsByClassName('blog');
+            for(const blog of blogs){
+                blog.style.border = '2px solid orange';
+                blog.style.borderRadius = '10px';
+                blog.style.margin = '5px';
+                blog.style.padding = '5px';
+            } 
+
             
 
         </script>
